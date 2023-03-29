@@ -13,7 +13,7 @@ const Body = () => {
           <Link
             to="/"
             key={info.title}
-            className="h-96 sm:w-96 max-w-fit md:w-2/5 shadow-md p-3 rounded-lg mx-auto my-4 overflow-hidden text-gray-900 "
+            className="h-fit w-96 shadow-md p-2 rounded-lg mx-auto my-4 overflow-hidden text-gray-900 "
           >
             <Cards info={info} />
           </Link>
