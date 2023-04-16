@@ -1,25 +1,20 @@
 import { Link } from "react-router-dom";
-import Cards from "./Cards";
+import BlogCard from "./BlogCard";
 import useArticle from "../../utils/useArticle";
 
 const Body = () => {
   const article = useArticle();
-  // console.log(article?.articles);
+  console.log(article?.articles);
 
   return (
-    <div className="">
+    <>
       <div className="flex flex-wrap px-5 py-10 w-3/4 m-auto border-r-2 border-l-2 bg-white mb-1 border-b-2">
-        {article?.articles?.map((info) => (
-          <Link
-            to="/"
-            key={info.title}
-            className="h-fit w-96 shadow-md p-2 rounded-lg mx-auto my-4 overflow-hidden text-gray-900 "
-          >
-            <Cards info={info} />
-          </Link>
-        ))}
+        {article?.articles?.map(
+          (info) =>
+            info?.description && <BlogCard key={info?.title} info={info} />
+        )}
       </div>
-    </div>
+    </>
   );
 };
 

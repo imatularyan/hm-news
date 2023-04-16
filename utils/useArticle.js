@@ -9,14 +9,12 @@ const useArticle = () => {
   }, []);
 
   const getArticleData = async () => {
-    const response = await fetch(ARTICLE_API);
-    if (response.status >= 200 && response.status <= 300) {
-      const json = await response.json();
+    const res = await fetch(ARTICLE_API);
+    if (res.status >= 200 && res.status <= 300) {
+      const json = await res.json();
       setArticle(json);
-      //   console.log("Article", json);
     } else {
-      setArticle(json);
-      //   console.log("Article", response.status);
+      setArticle(res.status);
     }
   };
 

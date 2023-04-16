@@ -1,9 +1,11 @@
 import Header from "./src/component/Header";
 import Body from "./src/component/Body";
 import Footer from "./src/component/Footer";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 import Latest from "./src/component/Latest";
 import Contact from "./src/component/Contact";
+import Random from "./src/component/Random";
+import About from "./src/component/About";
 
 const App = () => {
   return (
@@ -27,6 +29,14 @@ export const appRouter = createBrowserRouter([
       {
         path: "latest",
         element: <Latest />,
+      },
+      {
+        path: "random",
+        element: <Random />,
+      },
+      {
+        path: "about",
+        element: <About />,
       },
       {
         path: "contact",
