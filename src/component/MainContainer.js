@@ -3,7 +3,7 @@ import useArticle from "../../utils/useArticle";
 
 const MainContainer = () => {
   const article = useArticle();
-  console.log(article?.articles);
+  // console.log(article?.articles);
   return (
     <>
       {article?.articles?.map(

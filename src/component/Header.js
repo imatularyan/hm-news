@@ -1,54 +1,51 @@
 import logo from "../assets/img/logo.svg";
 import { Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Formik, Form, Field } from "formik";
 import facebook from "../assets/img/facebook.svg";
 import youtube from "../assets/img/youtube.svg";
 import instagram from "../assets/img/instagram.svg";
 
 const Header = () => {
-  const [showUser, setShowUser] = useState(false);
-  const userMenu = useRef();
-  const imgUserMenu = useRef();
-
-  useEffect(() => {
-    let handler = (e) => {
-      if (e.target !== userMenu.current && e.target !== imgUserMenu.current) {
-        setShowUser(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-  }, []);
+  const [login, setLogin] = useState(false);
+  const [category, setCategory] = useState("Top Headlines");
+  const [region, setRegion] = useState("IN");
+  console.log(category);
+  console.log(region);
 
   return (
     <header className="w-full shadow-sm sticky top-0 bg-white">
       <div className="h-16 p-6 flex justify-between items-center relative text-gray-900 w-full m-auto">
         <Link to="/">
-          <div className="flex gap-2 items-center">
+          <div className="flex items-center">
             <img width="30px" src={logo} alt="logo" />
-            <span className=" text-2xl font-semibold">
+            <span className=" text-2xl font-bold">
               HM
               <small className=" text-xs font-light">News</small>
             </span>
           </div>
         </Link>
         <nav className="flex gap-5 items-center">
-          <ul className="flex gap-5 overflow-x-auto text-sm">
-            <select className=" w-24 outline-none focus:border bg-transparent border-none">
-              <option value="Category">Category</option>
-              <option value="Todays News">Todays News</option>
+          <ul className="flex gap-5 text-sm">
+            <select
+              className=" w-min outline-none bg-transparent"
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="Top Headlines">Top Headlines</option>
               <option value="Science & Technoloy">Science & Technoloy</option>
               <option value="Politics">Politics</option>
               <option value="Business">Business</option>
               <option value="Marketing">Marketing</option>
             </select>
+            <select
+              className=" w-min outline-none bg-transparent"
+              onChange={(e) => setRegion(e.target.value)}
+            >
+              <option value="IN">IN</option>
+              <option value="US">US</option>
+            </select>
             <Link to="/latest">
               <li>Latest</li>
-            </Link>
-            <Link to="/random">
-              <li>
-                Random <sup className=" text-xs font-light">IN</sup>
-              </li>
             </Link>
             <Link to="/about">
               <li>About</li>
@@ -58,27 +55,28 @@ const Header = () => {
             </Link>
           </ul>
           <button
-            ref={imgUserMenu}
             type="button"
-            className="border border-indigo-500 p-1 px-2 rounded-md hover:bg-indigo-500 hover:text-white transition delay-75 duration-100 ease-in-out relative"
-            onClick={() => !showUser && setShowUser(true)}
+            className="border border-indigo-500 p-1 px-2 rounded-md hover:bg-indigo-500 hover:text-white transition delay-75 duration-100 ease-in-out relative outline-none"
+            onClick={() => setLogin(!login)}
           >
             LogIn
           </button>
-          {console.log(showUser)}
         </nav>
       </div>
-      {showUser && (
-        <div className="w-full h-screen bg-gray-200/90 absolute backdrop-blur">
+      {login && (
+        <>
           <div
-            ref={userMenu}
-            className="absolute w-[30%] h-fit bg-indigo-50 rounded-xl px-12 py-6  left-[35%] top-16 z-50"
-            onClick={() => setShowUser(true)}
+            onClick={() => setLogin(false)}
+            className="w-full h-screen bg-gray-200/90 absolute backdrop-blur"
           >
+            {" "}
+          </div>
+
+          <div className="absolute w-[30%] h-fit bg-indigo-50 rounded-xl px-12 py-6  left-[35%] top-28 ">
             <h1 className=" text-2xl font-bold tracking-wide text-center">
               LogIn
             </h1>
-            <div className=" text-indigo-500 m-2 text-center text-sm">
+            <div className=" text-indigo-500 m-1 text-center text-sm">
               <span className="cursor-pointer">Sign Up</span>{" "}
               <span className="text-black">or</span>{" "}
               <Link to="/admin">
@@ -101,6 +99,7 @@ const Header = () => {
               <Formik
                 initialValues={{
                   userName: "",
+                  email: "",
                   password: "",
                 }}
                 onSubmit={async (values) => {
@@ -109,23 +108,32 @@ const Header = () => {
                 }}
               >
                 <Form className="flex flex-col w-full p-5">
+                  <label htmlFor="username">Username</label>
+                  <Field
+                    className="p-3 outline-none border border-gray-200 rounded-md mt-1 mb-3"
+                    id="username"
+                    name="userName"
+                    type="username"
+                    placeholder="abcname"
+                  />
+                  <div className=" text-center">Or</div>
                   <label htmlFor="email">Email</label>
                   <Field
                     className="p-3 outline-none border border-gray-200 rounded-md mt-1 mb-3"
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="abcname or abc@mail.com"
+                    placeholder="abc@mail.com"
                   />
                   <label htmlFor="password">Password</label>
                   <Field
                     className="p-3 outline-none border border-gray-200 rounded-md mt-1 mb-3"
                     id="password"
                     name="password"
-                    placeholder="Abcd@123"
+                    placeholder="Abc@1234"
                     type="password"
                   />
-                  <p className="text-indigo-500 cursor-pointer">
+                  <p className="text-indigo-500 cursor-pointer text-sm">
                     Forgot Password?
                   </p>
                   <button
@@ -138,7 +146,7 @@ const Header = () => {
               </Formik>
             </div>
           </div>
-        </div>
+        </>
       )}
     </header>
   );

@@ -12,12 +12,12 @@ const Cards = ({ info }) => {
   }, [checkImgURL]);
 
   return (
-    <div className="h-fit w-80 border p-2 rounded-lg my-4 mx-[5px] overflow-hidden text-gray-900 bg-white">
+    <div className="h-fit w-80 hover:outline hover:outline-gray-300 p-2 my-4 mx-[5px] overflow-hidden text-gray-900">
       <div className="text-xs font-light break-words flex items-center justify-between py-1">
         <span>{publishedAt.slice(0, 10)}</span>
         <div className="flex items-center ">
           {author && (
-            <span className="bg-gray-50 rounded-full font-light px-2 py-1 mr-5">
+            <span className="bg-gray-200 rounded-full font-light px-2 py-1 break-words">
               {author}
             </span>
           )}

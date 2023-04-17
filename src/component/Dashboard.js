@@ -4,7 +4,7 @@ const Dashboard = () => {
   return (
     <div>
       <h1>Dashboard</h1>
-      <Link to="/login">
+      <Link to="/">
         <p>User login</p>
       </Link>
     </div>
