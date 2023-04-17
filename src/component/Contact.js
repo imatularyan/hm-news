@@ -8,7 +8,7 @@ import instagram from "../assets/img/instagram.svg";
 
 const Contact = () => {
   return (
-    <div className=" h-screen w-full">
+    <div className=" h-screen py-10 w-11/12 scroll-smooth m-auto">
       <div className="h-fit bg-[#1B2259] w-full rounded-xl flex p-14">
         <div className=" basis-2/5 text-white">
           <h1 className=" text-3xl font-bold leading-10 tracking-wide">

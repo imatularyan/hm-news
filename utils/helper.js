@@ -1,4 +1,4 @@
 export const checkURL = (url) => {
-  const res = url.match(/\.(jpeg|jpg|gif|png)$/) != null;
-  return res;
+  const data = url.match(/\.(jpeg|jpg|gif|png)$/) != null;
+  return data;
 };
