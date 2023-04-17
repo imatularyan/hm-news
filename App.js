@@ -6,12 +6,15 @@ import Latest from "./src/component/Latest";
 import Contact from "./src/component/Contact";
 import Random from "./src/component/Random";
 import About from "./src/component/About";
+import Subscribe from "./src/component/Subscribe";
+import MainContainer from "./src/component/MainContainer";
 
 const App = () => {
   return (
     <>
       <Header />
       <Outlet />
+      <Subscribe />
       <Footer />
     </>
   );
@@ -25,22 +28,28 @@ export const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <Body />,
-      },
-      {
-        path: "latest",
-        element: <Latest />,
-      },
-      {
-        path: "random",
-        element: <Random />,
-      },
-      {
-        path: "about",
-        element: <About />,
-      },
-      {
-        path: "contact",
-        element: <Contact />,
+        children: [
+          {
+            path: "",
+            element: <MainContainer />,
+          },
+          {
+            path: "latest",
+            element: <Latest />,
+          },
+          {
+            path: "random",
+            element: <Random />,
+          },
+          {
+            path: "about",
+            element: <About />,
+          },
+          {
+            path: "contact",
+            element: <Contact />,
+          },
+        ],
       },
     ],
   },

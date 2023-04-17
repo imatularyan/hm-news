@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="w-full shadow-md bg-white sticky top-0">
-      <div className="h-16 p-2 flex justify-around items-center relative text-gray-900 w-3/4 m-auto">
+    <header className="w-full shadow-sm sticky top-0 bg-sky-50">
+      <div className="h-16 p-2 flex justify-between items-center relative text-gray-900 w-3/4 m-auto">
         <Link to="/">
           <div className="flex gap-2 items-center">
             <img width="30px" src={logo} alt="logo" />
@@ -15,8 +15,8 @@ const Header = () => {
           </div>
         </Link>
         <nav>
-          <ul className="flex gap-5 overflow-x-auto">
-            <select className=" w-28 outline-none focus:border">
+          <ul className="flex gap-5 overflow-x-auto text-sm">
+            <select className=" w-24 outline-none focus:border bg-transparent border-none">
               <option value="Category">Category</option>
               <option value="Todays News">Todays News</option>
               <option value="Science & Technoloy">Science & Technoloy</option>
