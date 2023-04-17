@@ -8,6 +8,8 @@ import Random from "./src/component/Random";
 import About from "./src/component/About";
 import Subscribe from "./src/component/Subscribe";
 import MainContainer from "./src/component/MainContainer";
+import Dashboard from "./src/component/Dashboard";
+import Login from "./src/component/Login";
 
 const App = () => {
   return (
@@ -49,9 +51,17 @@ export const appRouter = createBrowserRouter([
             path: "contact",
             element: <Contact />,
           },
+          {
+            path: "/login",
+            element: <Login />,
+          },
         ],
       },
     ],
+  },
+  {
+    path: "/admin",
+    element: <Dashboard />,
   },
 ]);
 

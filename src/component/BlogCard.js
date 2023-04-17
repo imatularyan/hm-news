@@ -12,7 +12,7 @@ const Cards = ({ info }) => {
   }, [checkImgURL]);
 
   return (
-    <div className="h-fit w-80 border p-2 rounded-lg my-4 mx-[0.83rem] overflow-hidden text-gray-900">
+    <div className="h-fit w-80 border p-2 rounded-lg my-4 mx-[5px] overflow-hidden text-gray-900 bg-white">
       <div className="text-xs font-light break-words flex items-center justify-between py-1">
         <span>{publishedAt.slice(0, 10)}</span>
         <div className="flex items-center ">
