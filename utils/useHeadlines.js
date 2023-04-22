@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import { ARTICLE_API } from "./constant";
 
-const useArticle = () => {
+const useArticle = (category) => {
   const [article, setArticle] = useState([]);
 
   useEffect(() => {
     getArticleData();
-  }, []);
+  }, [category]);
 
   const getArticleData = async () => {
-    const res = await fetch(ARTICLE_API);
-    if (res.status >= 200 && res.status <= 300) {
+    const res = await fetch(`${ARTICLE_API}${category}`);
+    if (res.status >= 200 && res.status <= 299) {
       const json = await res.json();
       setArticle(json);
     } else {

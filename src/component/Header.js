@@ -1,17 +1,14 @@
 import logo from "../assets/img/logo.svg";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import facebook from "../assets/img/facebook.svg";
 import youtube from "../assets/img/youtube.svg";
 import instagram from "../assets/img/instagram.svg";
+import search from "../assets/img/search.svg";
 
-const Header = () => {
+const Header = ({ setCategory, setSearchText }) => {
   const [login, setLogin] = useState(false);
-  const [category, setCategory] = useState("Top Headlines");
-  const [region, setRegion] = useState("IN");
-  console.log(category);
-  console.log(region);
 
   return (
     <header className="w-full shadow-sm sticky top-0 bg-white">
@@ -26,27 +23,31 @@ const Header = () => {
           </div>
         </Link>
         <nav className="flex gap-5 items-center">
+          <div className=" px-1 w-fit flex bg-gray-100 shadow-inner">
+            <input
+              className="p-1 outline-none bg-gray-100 w-full"
+              type="text"
+              placeholder="Search..."
+              onChange={(e) => setSearchText(e.currentTarget.value)}
+            />
+            <img className="w-6 bg-gray-100" src={search} alt="search" />
+          </div>
           <ul className="flex gap-5 text-sm">
+            <Link to="/">
+              <li>Top Headlines</li>
+            </Link>
             <select
               className=" w-min outline-none bg-transparent"
               onChange={(e) => setCategory(e.target.value)}
             >
-              <option value="Top Headlines">Top Headlines</option>
-              <option value="Science & Technoloy">Science & Technoloy</option>
-              <option value="Politics">Politics</option>
+              <option value="General">All</option>
+              <option value="Entertainment">Entertainment</option>
               <option value="Business">Business</option>
-              <option value="Marketing">Marketing</option>
+              <option value="Health">Health</option>
+              <option value="Science">Science</option>
+              <option value="Sports">Sports</option>
+              <option value="Technology">Technology</option>
             </select>
-            <select
-              className=" w-min outline-none bg-transparent"
-              onChange={(e) => setRegion(e.target.value)}
-            >
-              <option value="IN">IN</option>
-              <option value="US">US</option>
-            </select>
-            <Link to="/latest">
-              <li>Latest</li>
-            </Link>
             <Link to="/about">
               <li>About</li>
             </Link>

@@ -2,21 +2,34 @@ import Header from "./src/component/Header";
 import Body from "./src/component/Body";
 import Footer from "./src/component/Footer";
 import { createBrowserRouter, Outlet } from "react-router-dom";
-import Latest from "./src/component/Latest";
 import Contact from "./src/component/Contact";
 import Random from "./src/component/Random";
 import About from "./src/component/About";
 import Subscribe from "./src/component/Subscribe";
 import MainContainer from "./src/component/MainContainer";
 import Dashboard from "./src/component/Dashboard";
+import { useState, createContext } from "react";
+import Error from "./src/component/Error";
+import Post from "./src/component/Post";
+import Status from "./src/component/Status";
+
+export const CategoryContext = createContext();
+export const SearchContext = createContext();
 
 const App = () => {
+  const [category, setCategory] = useState("General");
+  const [searchText, setSearchText] = useState("");
+
   return (
     <>
-      <Header />
-      <Outlet />
-      <Subscribe />
-      <Footer />
+      <CategoryContext.Provider value={category}>
+        <SearchContext.Provider value={searchText}>
+          <Header setCategory={setCategory} setSearchText={setSearchText} />
+          <Outlet />
+          <Subscribe />
+          <Footer />
+        </SearchContext.Provider>
+      </CategoryContext.Provider>
     </>
   );
 };
@@ -25,6 +38,7 @@ export const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -33,10 +47,6 @@ export const appRouter = createBrowserRouter([
           {
             path: "",
             element: <MainContainer />,
-          },
-          {
-            path: "latest",
-            element: <Latest />,
           },
           {
             path: "random",
@@ -57,6 +67,16 @@ export const appRouter = createBrowserRouter([
   {
     path: "/admin",
     element: <Dashboard />,
+    children: [
+      {
+        path: "",
+        element: <Status />,
+      },
+      {
+        path: "post",
+        element: <Post />,
+      },
+    ],
   },
 ]);
 
