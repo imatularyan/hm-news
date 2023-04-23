@@ -17,10 +17,11 @@ const MainContainer = () => {
     <Shimmer />
   ) : (
     <>
-      <h1 className=" text-4xl font-bold text-gray-700 w-11/12 mx-auto px-1 py-2 border-b">
+      <h1 className=" text-4xl font-bold text-gray-700 px-16 pt-2 py-2">
         {"Top Headlines"}
+        <hr className="mt-3 w-80" />
       </h1>
-      <div className="flex flex-wrap px-1 mb-5 mx-auto w-11/12">
+      <div className="flex flex-wrap w-full px-12">
         {info?.map(
           (info, index) =>
             info?.description && <BlogCard key={index} info={info} />

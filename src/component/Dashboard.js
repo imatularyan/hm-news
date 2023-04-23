@@ -35,7 +35,7 @@ const Dashboard = () => {
           </li>
         </ul>
       </div>
-      <div className="container p-2 bg-indigo-50">
+      <div className="container py-2 px-5 bg-indigo-50">
         <div className="flex items-center justify-end tracking-wide text-sm">
           <p className="cursor-pointer">{admin()}</p>
           <Link
