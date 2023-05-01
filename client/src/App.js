@@ -1,18 +1,18 @@
-import Header from "./src/component/Header";
-import Body from "./src/component/Body";
-import Footer from "./src/component/Footer";
+import Header from "../src/component/Header";
+import Body from "../src/component/Body";
+import Footer from "../src/component/Footer";
 import { createBrowserRouter, Outlet } from "react-router-dom";
-import Contact from "./src/component/Contact";
-import About from "./src/component/About";
-import Subscribe from "./src/component/Subscribe";
-import MainContainer from "./src/component/MainContainer";
-import Dashboard from "./src/component/Dashboard";
+import Contact from "../src/component/Contact";
+import About from "../src/component/About";
+import Subscribe from "../src/component/Subscribe";
+import MainContainer from "../src/component/MainContainer";
+import Dashboard from "../src/component/Dashboard";
 import { useState, createContext } from "react";
-import Error from "./src/component/Error";
-import Post from "./src/component/Post";
-import Status from "./src/component/Status";
-import Signup from "./src/component/Signup";
-import BlogContainer from "./src/component/BlogContainer";
+import Error from "../src/component/Error";
+import Post from "../src/component/Post";
+import Status from "../src/component/Status";
+import Signup from "../src/component/Signup";
+import BlogContainer from "../src/component/BlogContainer";
 
 export const CategoryContext = createContext();
 export const SearchContext = createContext();
@@ -27,7 +27,7 @@ const App = () => {
         <SearchContext.Provider value={searchText}>
           <Header setCategory={setCategory} setSearchText={setSearchText} />
           <Outlet />
-          <Footer />
+          {/* <Footer /> */}
         </SearchContext.Provider>
       </CategoryContext.Provider>
     </>
@@ -61,7 +61,7 @@ export const appRouter = createBrowserRouter([
                 element: <Contact />,
               },
               {
-                path: "signup",
+                path: "register",
                 element: <Signup />,
               },
             ],

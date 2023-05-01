@@ -27,7 +27,7 @@ const Modal = ({ setLogin }) => {
           Log In
         </h1>
         <div className=" text-indigo-500 m-1 text-center text-sm ">
-          <Link to="/signup">
+          <Link to="/register">
             <span className="cursor-pointer" onClick={() => setLogin(!true)}>
               Sign Up
             </span>

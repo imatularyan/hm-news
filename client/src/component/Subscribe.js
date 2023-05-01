@@ -5,6 +5,12 @@ const Subscribe = () => {
         <h1 className=" text-4xl font-medium break-words w-fit ">
           Subscribe to our newsletter
         </h1>
+        <p>
+          "Stay informed and never miss a beat. Sign up for our newsletter today
+          and be the first to receive breaking news, exclusive stories, and
+          in-depth coverage on the topics that matter to you. Join our community
+          of informed readers and stay ahead of the curve."
+        </p>
         <div className="border w-fit h-fit flex flex-row flex-nowrap">
           <input
             type="text"

@@ -1,11 +1,9 @@
 import BlogCard from "./BlogCard";
-import BlogCard from "./BlogCard";
-import useHeadlines from "../../utils/useHeadlines";
+import useHeadlines from "../utils/useHeadlines";
 // import useEverything from "../../utils/useEverything";
 import { useContext } from "react";
-import { CategoryContext, SearchContext } from "../../App";
+import { CategoryContext, SearchContext } from "../App";
 import Shimmer from "./Shimmer";
-import { info } from "../../utils/constant";
 
 const BlogContainer = () => {
   const category = useContext(CategoryContext);
@@ -26,10 +24,6 @@ const BlogContainer = () => {
           (info) =>
             info?.description && <BlogCard key={info?.title} info={info} />
         )}
-        {/* {info?.map(
-          (info, index) =>
-            info?.description && <BlogCard key={index} info={info} />
-        )} */}
       </div>
     </>
   );
