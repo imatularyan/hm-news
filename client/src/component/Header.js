@@ -9,25 +9,25 @@ const Header = ({ setCategory, setSearchText }) => {
 
   return (
     <>
-      <header className="h-14 px-12 flex justify-between items-center text-gray-700 w-full m-auto sticky top-0 bg-white">
+      <header className="h-14 px-12 flex justify-between items-center w-full m-auto sticky top-0 bg-white font-poppins">
         <Link to="/">
-          <div className="flex items-center">
-            <img width="30px" src={logo} alt="logo" />
-            <span className=" text-2xl font-bold">
+          <div className="flex">
+            <img width="45px" src={logo} alt="logo" />
+            <span className="h-full text-2xl font-bold mt-4">
               HM
               <small className=" text-xs font-light">News</small>
             </span>
           </div>
         </Link>
         <nav className="flex gap-5 items-center">
-          <div className=" px-1 w-fit flex bg-gray-100 shadow-inner">
+          <div className=" px-1 w-fit flex border-b">
             <input
-              className="p-1 outline-none bg-gray-100 w-full"
+              className="p-1 outline-none w-full placeholder:font-light"
               type="text"
               placeholder="Search..."
               onChange={(e) => setSearchText(e.currentTarget.value)}
             />
-            <img className="w-6 bg-gray-100" src={search} alt="search" />
+            <img className="w-6" src={search} alt="search" />
           </div>
           <ul className="flex gap-5 text-sm">
             <Link to="/">
@@ -57,7 +57,7 @@ const Header = ({ setCategory, setSearchText }) => {
             className="border border-indigo-500 p-1 px-2 rounded-md hover:bg-indigo-500 hover:text-white transition delay-75 duration-100 ease-in-out relative outline-none"
             onClick={() => setLogin(!login)}
           >
-            LogIn
+            Login
           </button>
         </nav>
         {login && <Modal setLogin={setLogin} />}

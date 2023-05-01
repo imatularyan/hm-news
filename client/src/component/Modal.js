@@ -16,7 +16,7 @@ const Modal = ({ setLogin }) => {
         className=" fixed top-0 bottom-0 left-0 right-0 bg-gray-300/50 backdrop-blur"
       ></div>
 
-      <div className="fixed top-1/2 left-1/2 shadow-sm transform -translate-x-1/2 -translate-y-1/2 w-96 h-fit bg-white rounded-lg p-2 text-gray-700">
+      <div className=" font-poppins fixed top-1/2 left-1/2 shadow-sm transform -translate-x-1/2 -translate-y-1/2 w-96 h-fit bg-white rounded-lg p-2 text-gray-700">
         <span
           className=" float-right cursor-pointer"
           onClick={() => setLogin(false)}

@@ -11,7 +11,7 @@ import { useState, createContext } from "react";
 import Error from "../src/component/Error";
 import Post from "../src/component/Post";
 import Status from "../src/component/Status";
-import Signup from "../src/component/Signup";
+import SignUp from "../src/component/SignUp";
 import BlogContainer from "../src/component/BlogContainer";
 
 export const CategoryContext = createContext();
@@ -27,7 +27,7 @@ const App = () => {
         <SearchContext.Provider value={searchText}>
           <Header setCategory={setCategory} setSearchText={setSearchText} />
           <Outlet />
-          {/* <Footer /> */}
+          <Footer />
         </SearchContext.Provider>
       </CategoryContext.Provider>
     </>
@@ -62,7 +62,7 @@ export const appRouter = createBrowserRouter([
               },
               {
                 path: "register",
-                element: <Signup />,
+                element: <SignUp />,
               },
             ],
           },

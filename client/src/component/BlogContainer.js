@@ -15,11 +15,10 @@ const BlogContainer = () => {
     <Shimmer />
   ) : (
     <>
-      <h1 className=" text-4xl font-bold text-gray-700 pt-2 py-2">
+      <h1 className=" text-4xl font-black text-gray-700 pt-2 py-2">
         {category === "General" ? "Top Headlines" : category}
-        <hr className="mt-3 w-80" />
       </h1>
-      <div className="flex flex-wrap w-full">
+      <div className="flex flex-wrap w-full border-t">
         {article?.articles?.map(
           (info) =>
             info?.description && <BlogCard key={info?.title} info={info} />

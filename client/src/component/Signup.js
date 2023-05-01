@@ -13,7 +13,7 @@ const initialValues = {
   confirmPassword: "",
 };
 
-const Signup = () => {
+const SignUp = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
 
@@ -59,7 +59,7 @@ const Signup = () => {
 
   return (
     <>
-      <div className=" h-screen p-12">
+      <div className=" h-screen p-12 font-poppins">
         <div className="flex justify-between bg-white rounded-2xl p-4 h-[700px] shadow-sm border container">
           <div className=" basis-2/5 text-white bg-indigo-700 rounded-xl flex p-10 border">
             <div className=" tracking-wide">
@@ -268,4 +268,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUp;

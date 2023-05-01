@@ -3,7 +3,7 @@ import { Formik, Form, Field } from "formik";
 const Post = () => {
   return (
     <>
-      <div className=" container bg-white shadow-sm border rounded-xl w-full h-fit text-gray-700">
+      <div className="  font-poppins container bg-white shadow-sm border rounded-xl w-full h-fit text-gray-700">
         <h1 className="text-center text-3xl pt-5 font-semibold">Post Blog</h1>
         <Formik
           initialValues={{
