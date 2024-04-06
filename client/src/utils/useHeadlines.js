@@ -9,12 +9,16 @@ const useArticle = (category) => {
   }, [category]);
 
   const getArticleData = async () => {
-    const res = await fetch(`${HEADLINES_API}${category}`);
-    if (res.status >= 200 && res.status <= 299) {
-      const json = await res.json();
-      setArticle(json);
-    } else {
-      setArticle(res.status);
+    try {
+      const res = await fetch(`${HEADLINES_API}${category}`);
+      if (res.status >= 200 && res.status <= 299) {
+        const json = await res.json();
+        setArticle(json);
+      } else {
+        setArticle(res.status);
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 

@@ -9,12 +9,16 @@ const useArticle = (searchText) => {
   }, []);
 
   const getQueryArticle = async () => {
-    const res = await fetch(`${WORLD_NEWS_API}${searchText}`);
-    if (res.status >= 200 && res.status <= 300) {
-      const json = await res.json();
-      setQueryArticle(json);
-    } else {
-      setQueryArticle(res.status);
+    try {
+      const res = await fetch(`${WORLD_NEWS_API}${searchText}`);
+      if (res.status >= 200 && res.status <= 300) {
+        const json = await res.json();
+        setQueryArticle(json);
+      } else {
+        setQueryArticle(res.status);
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 
